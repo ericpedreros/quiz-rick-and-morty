@@ -1,33 +1,17 @@
-import { Geist, Geist_Mono } from 'next/font/google'
+import { QuizProvider } from './context/QuizContext'
 import './globals.css'
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
 
 export const metadata = {
-  title: 'Quiz App',
-  description: 'A quiz app built with Next.js',
+  title: 'Rick and Morty Quiz',
+  description: 'A quiz app using Rick and Morty API',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <NavBar />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <QuizProvider>{children}</QuizProvider>
       </body>
-      <Footer />
     </html>
   )
 }
